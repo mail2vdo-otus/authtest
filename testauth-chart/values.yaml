@@ -1,0 +1,32 @@
+# Default values for chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: mail2vdo/pyth
+  pullPolicy: IfNotPresent
+
+
+service:
+  type: NodePort
+  port: 80
+
+ingress:
+  enabled: true
+  annotations: 
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  hosts:
+    - host: localhost
+      paths:
+        path: /session($|/)(.*)
+    - host: arch.homework
+      paths:
+        path: /session($|/)(.*)
+    - host:
+      paths:
+        path: /session($|/)(.*)
+  service:
+    port: 80
+
