@@ -1,323 +1,369 @@
 {
-    "info": {
-	"_postman_id": "c6043f8d-335b-44fa-a6a4-a6bd71cd06d2",
-	"name": "auth_test",
-	"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-    },
-    "item": [
-	{
-	    "name": "auth",
-	    "request": {
-		"method": "GET",
-		"header": [
-		    {
-			"key": "Host",
-			"value": "arch.homework",
-			"type": "text"
-		    }
-		],
-		"url": {
-		    "raw": "http://{{url}}/session/auth",
-		    "protocol": "http",
-		    "host": [
-			"{{url}}"
-		    ],
-		    "path": [
-			"session",
-			"auth"
-		    ]
-		}
-	    },
-	    "response": []
+	"info": {
+		"_postman_id": "c6043f8d-335b-44fa-a6a4-a6bd71cd06d2",
+		"name": "auth_test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
-	{
-	    "name": "register",
-	    "event": [
+	"item": [
 		{
-		    "listen": "prerequest",
-		    "script": {
-			"id": "34a3862a-ae4e-446c-9d4e-c43387b3d71b",
-			"exec": [
-			    "const uuid = Math.random().toString(36).substring(2, 15) +\r",
-			    "        Math.random().toString(36).substring(2, 15);\r",
-			    "const email = uuid+\"@mail.ru\"\r",
-			    "\r",
-			    "pm.globals.set(\"email\", email);\r",
-			    "\r",
-			    "const last_name = \"last_\"+uuid\r",
-			    "\r",
-			    "pm.globals.set(\"last_name\", last_name);\r",
-			    "\r",
-			    "const first_name = \"first\"+uuid\r",
-			    "\r",
-			    "pm.globals.set(\"first_name\", first_name);\r",
-			    "\r",
-			    "\r",
-			    "\r",
-			    "const login = \"login\"+uuid\r",
-			    "\r",
-			    "pm.globals.set(\"login\", login);\r",
-			    "\r",
-			    "\r",
-			    "const pwd = \"pwd\"+uuid\r",
-			    "\r",
-			    "pm.globals.set(\"pwd\", login);"
-			],
-			"type": "text/javascript"
-		    }
-		}
-	    ],
-	    "request": {
-		"method": "POST",
-		"header": [
-		    {
-			"key": "Content-Type",
-			"value": "application/json",
-			"type": "text"
-		    },
-		    {
-			"key": "Host",
-			"value": "arch.homework",
-			"type": "text"
-		    }
-		],
-		"body": {
-		    "mode": "raw",
-		    "raw": "{\n\t\"login\":\"{{login}}\",\n\t\"password\":\"{{pwd}}\",\n\t\"email\":\"{{email}}\",\n\t\"last_name\":\"{{last_name}}\",\n\t\"first_name\":\"{{first_name}}\"\n}"
+			"name": "auth",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Host",
+						"value": "arch.homework",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{url}}/session/auth",
+					"protocol": "http",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"session",
+						"auth"
+					]
+				}
+			},
+			"response": []
 		},
-		"url": {
-		    "raw": "http://{{url}}/session/register",
-		    "protocol": "http",
-		    "host": [
-			"{{url}}"
-		    ],
-		    "path": [
-			"session",
-			"register"
-		    ]
-		}
-	    },
-	    "response": []
-	},
-	{
-	    "name": "login",
-	    "event": [
 		{
-		    "listen": "prerequest",
-		    "script": {
-			"id": "45a81cb4-fbd9-4a87-bd14-cc72d8674be9",
-			"exec": [
-			    ""
+			"name": "register",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "34a3862a-ae4e-446c-9d4e-c43387b3d71b",
+						"exec": [
+							"const uuid = Math.random().toString(36).substring(2, 15) +\r",
+							"        Math.random().toString(36).substring(2, 15);\r",
+							"const email = uuid+\"@mail.ru\"\r",
+							"\r",
+							"pm.globals.set(\"email\", email);\r",
+							"\r",
+							"const last_name = \"last_\"+uuid\r",
+							"\r",
+							"pm.globals.set(\"last_name\", last_name);\r",
+							"\r",
+							"const first_name = \"first\"+uuid\r",
+							"\r",
+							"pm.globals.set(\"first_name\", first_name);\r",
+							"\r",
+							"\r",
+							"\r",
+							"const login = \"login\"+uuid\r",
+							"\r",
+							"pm.globals.set(\"login\", login);\r",
+							"\r",
+							"\r",
+							"const pwd = \"pwd\"+uuid\r",
+							"\r",
+							"pm.globals.set(\"pwd\", login);"
+						],
+						"type": "text/javascript"
+					}
+				}
 			],
-			"type": "text/javascript"
-		    }
-		}
-	    ],
-	    "request": {
-		"method": "POST",
-		"header": [
-		    {
-			"key": "Content-Type",
-			"value": "application/json",
-			"type": "text"
-		    },
-		    {
-			"key": "Host",
-			"value": "arch.homework",
-			"type": "text"
-		    }
-		],
-		"body": {
-		    "mode": "raw",
-		    "raw": "{\n\t\"login\": \"{{login}}\",\n\t\"password\": \"{{pwd}}\"\n}"
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "arch.homework",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"login\":\"{{login}}\",\n\t\"password\":\"{{pwd}}\",\n\t\"email\":\"{{email}}\",\n\t\"last_name\":\"{{last_name}}\",\n\t\"first_name\":\"{{first_name}}\"\n}"
+				},
+				"url": {
+					"raw": "http://{{url}}/session/register",
+					"protocol": "http",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"session",
+						"register"
+					]
+				}
+			},
+			"response": []
 		},
-		"url": {
-		    "raw": "http://{{url}}/session/login",
-		    "protocol": "http",
-		    "host": [
-			"{{url}}"
-		    ],
-		    "path": [
-			"session",
-			"login"
-		    ]
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "45a81cb4-fbd9-4a87-bd14-cc72d8674be9",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "arch.homework",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"login\": \"{{login}}\",\n\t\"password\": \"{{pwd}}\"\n}"
+				},
+				"url": {
+					"raw": "http://{{url}}/session/login",
+					"protocol": "http",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"session",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile 1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Host",
+						"value": "arch.homework",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{url}}/otusapp/profile",
+					"protocol": "http",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"otusapp",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "arch.homework",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"email\":\"new_{{email}}\",\r\n\t\"last_name\":\"new_{{last_name}}\",\r\n\t\"first_name\":\"new_{{first_name}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{url}}/session/register",
+					"protocol": "http",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"session",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile 2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Host",
+						"value": "arch.homework",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{url}}/otusapp/profile",
+					"protocol": "http",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"otusapp",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "app request users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Host",
+						"type": "text",
+						"value": "arch.homework"
+					}
+				],
+				"url": {
+					"raw": "http://{{url}}/otusapp/users",
+					"protocol": "http",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"otusapp",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "arch.homework",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{url}}/session/logout",
+					"protocol": "http",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"session",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "failed login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "1900d047-7f0d-44da-b7d0-13c1b35d9f50",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Host",
+						"type": "text",
+						"value": "arch.homework"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"login\": \"{{login}}\",\n\t\"password\": \"xxxx\"\n}"
+				},
+				"url": {
+					"raw": "http://{{url}}/session/login",
+					"protocol": "http",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"session",
+						"login"
+					]
+				}
+			},
+			"response": []
 		}
-	    },
-	    "response": []
-	},
-	{
-	    "name": "profile 1",
-	    "request": {
-		"method": "GET",
-		"header": [
-		    {
-			"key": "Host",
-			"value": "arch.homework",
-			"type": "text"
-		    }
-		],
-		"url": {
-		    "raw": "http://{{url}}/otusapp/profile",
-		    "protocol": "http",
-		    "host": [
-			"{{url}}"
-		    ],
-		    "path": [
-			"otusapp",
-			"profile"
-		    ]
-		}
-	    },
-	    "response": []
-	},
-	{
-	    "name": "register update",
-	    "request": {
-		"method": "PUT",
-		"header": [
-		    {
-			"key": "Content-Type",
-			"value": "application/json",
-			"type": "text"
-		    },
-		    {
-			"key": "Host",
-			"value": "arch.homework",
-			"type": "text"
-		    }
-		],
-		"body": {
-		    "mode": "raw",
-		    "raw": "{\r\n\t\"email\":\"new_{{email}}\",\r\n\t\"last_name\":\"new_{{last_name}}\",\r\n\t\"first_name\":\"new_{{first_name}}\"\r\n}",
-		    "options": {
-			"raw": {
-			    "language": "json"
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5a56dbce-660d-46e5-9ad9-da9e4eb0e082",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
 			}
-		    }
 		},
-		"url": {
-		    "raw": "http://{{url}}/session/register",
-		    "protocol": "http",
-		    "host": [
-			"{{url}}"
-		    ],
-		    "path": [
-			"session",
-			"register"
-		    ]
+		{
+			"listen": "test",
+			"script": {
+				"id": "b0792d5a-a2dc-48d8-9c22-ed6d226d01e8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
-	    },
-	    "response": []
-	},
-	{
-	    "name": "profile 2",
-	    "request": {
-		"method": "GET",
-		"header": [
-		    {
-			"key": "Host",
-			"value": "arch.homework",
-			"type": "text"
-		    }
-		],
-		"url": {
-		    "raw": "http://{{url}}/otusapp/profile",
-		    "protocol": "http",
-		    "host": [
-			"{{url}}"
-		    ],
-		    "path": [
-			"otusapp",
-			"profile"
-		    ]
+	],
+	"variable": [
+		{
+			"id": "22cb76ed-7c5d-4793-a36d-5e5d7bbbf621",
+			"key": "url",
+			"value": "84.201.152.170"
 		}
-	    },
-	    "response": []
-	},
-	{
-	    "name": "app request users",
-	    "request": {
-		"method": "GET",
-		"header": [
-		    {
-			"key": "Host",
-			"type": "text",
-			"value": "arch.homework"
-		    }
-		],
-		"url": {
-		    "raw": "http://{{url}}/otusapp/users",
-		    "protocol": "http",
-		    "host": [
-			"{{url}}"
-		    ],
-		    "path": [
-			"otusapp",
-			"users"
-		    ]
-		}
-	    },
-	    "response": []
-	},
-	{
-	    "name": "logout",
-	    "request": {
-		"method": "GET",
-		"header": [
-		    {
-			"key": "Content-Type",
-			"value": "application/json",
-			"type": "text"
-		    },
-		    {
-			"key": "Host",
-			"value": "arch.homework",
-			"type": "text"
-		    }
-		],
-		"url": {
-		    "raw": "http://{{url}}/session/logout",
-		    "protocol": "http",
-		    "host": [
-			"{{url}}"
-		    ],
-		    "path": [
-			"session",
-			"logout"
-		    ]
-		}
-	    },
-	    "response": []
-	}
-    ],
-    "event": [
-	{
-	    "listen": "prerequest",
-	    "script": {
-		"id": "5a56dbce-660d-46e5-9ad9-da9e4eb0e082",
-		"type": "text/javascript",
-		"exec": [
-		    ""
-		]
-	    }
-	},
-	{
-	    "listen": "test",
-	    "script": {
-		"id": "b0792d5a-a2dc-48d8-9c22-ed6d226d01e8",
-		"type": "text/javascript",
-		"exec": [
-		    ""
-		]
-	    }
-	}
-    ],
-    "variable": [
-	{
-	    "id": "a5eaabda-173c-4ce9-a87f-b35679cdedf4",
-	    "key": "url",
-	    "value": "84.201.152.170"
-	}
-    ],
-    "protocolProfileBehavior": {}
+	],
+	"protocolProfileBehavior": {}
 }
